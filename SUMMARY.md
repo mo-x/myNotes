@@ -7,4 +7,5 @@
 * [Jvm 生成dump文件](jvm-sheng-cheng-dump-wen-jian.md)
 * [Spring boot rabbit mq 手动ack配置](spring-boot-rabbit-mq-shou-dong-ack-pei-zhi.md)
 * [记一次Spring boot项目乱码排查](README.md)
+* [spring boot 如何跳转线上url](spring-boot-ru-he-tiao-zhuan-xian-shang-url.md)
 
