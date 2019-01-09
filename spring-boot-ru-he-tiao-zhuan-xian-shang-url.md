@@ -1,7 +1,5 @@
-
-
 ```java
-@Controller
+@Controller //注意此处
 public class ActivitiesController {
 
     public static final String url = "http://m.7daysinn.cn/maserati/ext/static/activities/groupCouponsTemplate.html?id=B4300FB17C757C218C8F69FB8A50308A";
@@ -18,6 +16,7 @@ public class ActivitiesController {
                 Map<String, String> map = new HashMap<>(1);
                 map.put(channel, url);
                 MonitorLogger.info(JSON.toJSONString(map));
+                //跳转指令
                 return "redirect:" + url;
             default:
                 break;
