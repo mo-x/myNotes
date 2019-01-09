@@ -1,10 +1,10 @@
-# 记一次Spring boot项目乱码排查
+### 记一次Spring boot项目乱码排查
 
-# 问题:服务端校验用户输入的密码不能为中文 但是客户端输入中文是可以在测试环境通过正则表达式的
+#### 问题:服务端校验用户输入的密码不能为中文 但是客户端输入中文是可以在测试环境通过正则表达式的
 
 1. First 首先本地环境是没有问题的 确认为测试环境有问题
 
-1. 添加监控代码 打印日志获取参数的编码
+2. 添加监控代码 打印日志获取参数的编码
 
    \`\`\`String decodePassword = new String\(mebPasswordModifyReq.getNewPassword\(\).getBytes\("utf-8"\), "utf-8"\);
 
@@ -22,9 +22,9 @@
 
    发现还是乱码 暴躁+1
 
-1. 抓包请求发现 \*\*content-type application/json;charSet=utf8\*\*
+3. 抓包请求发现 \*\*content-type application/json;charSet=utf8\*\*
 
-1. 编写方法获取字符串的代码
+4. 编写方法获取字符串的代码
 
    \`\`\`
 
@@ -60,7 +60,7 @@
 
    监控日志打印出来为utf-8 确认为项目环境问题
 
-1. 查看pom文件 添加以下代码
+5. 查看pom文件 添加以下代码
 
    \`\`\`
 
@@ -78,7 +78,7 @@
 
    再次部署项目 继续乱码 暴躁+2
 
-1. 添加代码 获取当前系统的字符集编码
+6. 添加代码 获取当前系统的字符集编码
 
    \` logger.error\("file.encoding is " + System.getProperty\("file.encoding"\)\);\`
 
@@ -100,7 +100,7 @@
 
    排查发现未指定 \*\*file.encoding\*\*
 
-1. 敲入 \`jinfo -sysprops process\_id\` 查看java 系统各项参数
+7. 敲入 \`jinfo -sysprops process\_id\` 查看java 系统各项参数
 
    发现\`file.encoding = ANSI\_X3.4-1968\`
 
