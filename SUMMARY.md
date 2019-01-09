@@ -6,4 +6,5 @@
 * [zuul 异常处理](zuul-yi-chang-chu-li.md)
 * [java -jar启动jar包时携带参数不起效的解决办法](java-jarqi-dong-jar-bao-shi-xi-dai-can-shu-bu-qi-xiao-de-jie-jue-ban-fa.md)
 * [Zuul 服务间的熔断](zuul-fu-wu-jian-de-rong-duan.md)
+* [Jvm 生成dump文件](jvm-sheng-cheng-dump-wen-jian.md)
 
