@@ -1,14 +1,8 @@
-  
-
-
 \#\#\#Java中拷贝分为两种 引用拷贝和对象拷贝
 
 1.引用拷贝，只拷贝引用本身，所指引的对象并不会拷贝,无论修改原有的对象内容或copy后的对象内容则互相影响。\(浅拷贝\)
 
 2.对象拷贝，拷贝引用和对象,堆中分配的对象会复制一份。这时存在两个独立对象，修改原有的或者copy后的对象互相不影响。（深拷贝）
-
-  
-
 
 ### 浅拷贝
 
@@ -79,7 +73,7 @@ protected Object clone()  {
 }
 ```
 
-####  last 使用序列化来深拷贝
+#### last 使用序列化来深拷贝
 
 ```java
 public class CloneUtils {
@@ -110,9 +104,9 @@ public class CloneUtils {
     }
 
 }
- 
- 
 ```
+
+#####  所有代码示例请点击[https://github.com/xps-zzq/HelloJava/tree/master/src/main/Java/copy](https://github.com/xps-zzq/HelloJava/tree/master/src/main/Java/copy)
 
 
 
