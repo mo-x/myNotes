@@ -13,4 +13,5 @@
 * [Java String必会](java-stringbi-hui.md)
 * [编写代码建议](bian-xie-dai-ma-jian-yi.md)
 * [Java 注解](java-zhu-jie.md)
+* [Spark伪分布式环境搭建](sparkwei-fen-bu-shi-huan-jing-da-jian.md)
 
