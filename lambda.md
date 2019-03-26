@@ -12,6 +12,11 @@
 | Consumer&lt;T&gt; | T | void |  |
 | Function&lt;T,R&gt; | T | R |  |
 | Supplier&lt;T&gt; | None | T | 工厂方法 |
+|  |  |  |  |
+
+
+
+
 
 4. map
 
