@@ -19,27 +19,25 @@
 
 List&lt;String&gt; collected = Stream.of\("a", "b", "hello"\).map\(string -&gt; string.toUpperCase\(\)\).collect\(toList\(\)\);
 
-5. flatMap
+1. flatMap
 
 方法可用 Stream 替换值，然后将多个 Stream 连接成一个 Stream
 
 List&lt;Integer&gt; together = Stream.of\(Arrays.asList\(1, 2\), Arrays.asList\(3, 4\)\).flatMap\(Collection::stream\).collect\(Collectors.toList\(\)\);
 
-6.filter
+6.filter 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
 
-遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
-
-7. reduce 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
+1. reduce 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
 
 法，因为常用而被纳入标准库中。事实上，这些方法都是 reduce 操作。
 
-8. forEachOrdered-保证有序
+1. forEachOrdered-保证有序
 
 forEach-无序
 
-9. 转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
+转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
 
-10. 转换成值
+1. 转换成值
 
 example:
 
@@ -50,11 +48,11 @@ public Optional<Artist> biggestGroup(Stream<Artist> artists) {
 }
 ```
 
-11. 数据分块
+1. 数据分块
 
 partitioningBy，它接受一个流，并将其分成两部分
 
-example: 
+example:
 
 * 将艺术家组成的流分成乐队和独唱歌手两部分
 
@@ -72,11 +70,11 @@ return artists.collect(partitioningBy(Artist::isSolo));
 }
 ```
 
-12. 数据分组
+1. 数据分组
 
 数据分组是一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。
 
-example: 
+example:
 
 * 使用主唱对专辑分组
 
@@ -96,9 +94,9 @@ example:
 String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
 ```
 
-14. mapping 允许在收集器的容器上执行类似 map 的操作
+1. mapping 允许在收集器的容器上执行类似 map 的操作
 
-15. 并行化流操作
+2. 并行化流操作
 
 并 行 化 操 作 流 只 需 改 变 一 个 方 法 调 用。 如 果 已 经 有 一 个 Stream 对 象， 调 用 它 的
 
@@ -110,5 +108,7 @@ parallelStream 就能立即获得一个拥有并行能力的流。
 
 及处理每个元素所花的时间。
 
-16. CompletableFuture
+1. CompletableFuture
+
+
 
