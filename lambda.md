@@ -20,15 +20,15 @@
 
 List&lt;String&gt; collected = Stream.of\("a", "b", "hello"\).map\(string -&gt; string.toUpperCase\(\)\).collect\(toList\(\)\);
 
-1. flatMap
+5. flatMap
 
 方法可用 Stream 替换值，然后将多个 Stream 连接成一个 Stream
 
 List&lt;Integer&gt; together = Stream.of\(Arrays.asList\(1, 2\), Arrays.asList\(3, 4\)\).flatMap\(Collection::stream\).collect\(Collectors.toList\(\)\);
 
-1. filter 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
+filter 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
 
-2. educe 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
+1. educe 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
 
 法，因为常用而被纳入标准库中。事实上，这些方法都是 reduce 操作。
 
