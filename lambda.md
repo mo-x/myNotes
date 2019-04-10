@@ -32,7 +32,7 @@
    }
    ```
 
-1. 使用示例
+   1. 使用示例
 
 ```java
  GreetingService greetService = message -> System.out.println("Hello " + message);
