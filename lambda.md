@@ -30,8 +30,14 @@
      @Override
      boolean equals(Object obj);
    }
-
    ```
+
+1. 使用示例
+
+```java
+ GreetingService greetService = message -> System.out.println("Hello " + message);
+ greetService.sayMessage("name");
+```
 
 1. Lambda 表达式中引用的局部变量必须是 final 或既成事实上的 final 变量。\(引用值，而不是变量）
 
