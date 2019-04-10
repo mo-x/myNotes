@@ -100,10 +100,8 @@
 |  |  |  |  |
 |  |  |  |  |
 
-
-
-1. 收集器
-   1. 转换成集合 
+1. 收集器  
+   1. 转换成集合
 
    ```java
    stream.collect(toCollection(TreeSet::new));
@@ -126,7 +124,7 @@ example:
 
 * 将艺术家组成的流分成乐队和独唱歌手两部分
 
-```
+```java
 public Map<Boolean, List<Artist>> bandsAndSolo(Stream<Artist> artists) {
     return artists.collect(partitioningBy(artist -> artist.isSolo()));
 }
@@ -134,15 +132,12 @@ public Map<Boolean, List<Artist>> bandsAndSolo(Stream<Artist> artists) {
 
 * 使用方法引用将艺术家组成的 Stream 分成乐队和独唱歌手两部分
 
-```
+```java
 public Map<Boolean, List<Artist>> bandsAndSoloRef(Stream<Artist> artists) {
 return artists.collect(partitioningBy(Artist::isSolo));
-}
 ```
 
-ii.数据分组
-
-数据分组是一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。
+i. 数据分组 -&gt; 一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。
 
 ![](/assets/groupingBy.png)
 
