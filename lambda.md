@@ -96,13 +96,15 @@ List<Integer> together = Stream.of(Arrays.asList(1, 2), Arrays.asList(3, 4)).fla
 
 1. filter 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
 
-1. reduce 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
+2. reduce 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
 
 法，因为常用而被纳入标准库中。事实上，这些方法都是 reduce 操作。
 
 1. forEachOrdered-保证有序
 
 forEach-无序
+
+
 
 转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
 
@@ -182,6 +184,8 @@ parallelStream 就能立即获得一个拥有并行能力的流。
 及处理每个元素所花的时间。
 
 1. CompletableFuture
+
+1. Classname::methodName
 
 
 
