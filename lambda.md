@@ -79,14 +79,6 @@
 
     * forEachOrdered-保证有序
     * forEach 无序
-
-  * 转换成集合
-
-    * example:
-
-      ```java
-      stream.collect(toCollection(TreeSet::new));
-      ```
 * 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
@@ -102,7 +94,7 @@
 
 1. 收集器
 
-   1.  转换成集合
+   1. 转换成集合
 
       ```java
       stream.collect(toCollection(TreeSet::new));
@@ -158,10 +150,6 @@
    9. 方法引用:
 
       1. Classname::methodName
-
-
-
-
 
 
 
