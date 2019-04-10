@@ -1,6 +1,37 @@
 1. 函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型
+   1. 函数式接口编写示例
+2. ```java
+   /** 函数式接口编写示例 添加 @FunctionalInterface 注解标明该接口为函数式接口 */
+   @FunctionalInterface
+   public interface GreetingService {
 
+     void sayMessage(String message);
 
+     /** 允许有默认方法 */
+     default void doSomeMoreWork1() {
+       // Method body
+     }
+
+     default void doSomeMoreWork2() {
+       // Method body
+     }
+
+     /** 允许静态方法 */
+     static void printHello() {
+       System.out.println("Hello");
+     }
+
+     /**
+      * 允许重写Object public 方法
+      *
+      * @param obj
+      * @return
+      */
+     @Override
+     boolean equals(Object obj);
+   }
+
+   ```
 
 1. Lambda 表达式中引用的局部变量必须是 final 或既成事实上的 final 变量。\(引用值，而不是变量）
 
