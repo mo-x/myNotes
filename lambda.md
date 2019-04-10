@@ -89,8 +89,6 @@
 | Consumer&lt;T&gt; | T | void | 输出一个值 |
 | Function&lt;T,R&gt; | T | R | 获得Artist对象的名字 |
 | Supplier&lt;T&gt; | None | T | 工厂方法 |
-|  |  |  |  |
-|  |  |  |  |
 
 1. 收集器
 
