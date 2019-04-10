@@ -1,7 +1,8 @@
 1. ---
 
-   函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型
+   函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型  
    1. 函数式接口编写示例
+
 2. ```java
    /** 函数式接口编写示例 添加 @FunctionalInterface 注解标明该接口为函数式接口 */
    @FunctionalInterface
@@ -45,13 +46,13 @@
 
 2. 常用流的操作
 
-   1. collect 
+collect
 
-      1. collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操作。
+1. collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操作。
 
-      2. collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作
+2. collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作
 
-3. 函数式接口
+1. 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
 | :--- | :--- | :--- | :--- |
