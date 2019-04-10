@@ -100,14 +100,15 @@
 |  |  |  |  |
 |  |  |  |  |
 
-1. 收集器  
-   1. 转换成集合
+1. 收集器
 
-   ```java
-   stream.collect(toCollection(TreeSet::new));
-   ```
+   1.  转换成集合
 
-   1. 转换成值
+      ```java
+      stream.collect(toCollection(TreeSet::new));
+      ```
+
+   2. 转换成值
 
       ```java
       public Optional<Artist> biggestGroup(Stream<Artist> artists) {
@@ -116,68 +117,51 @@
       }
       ```
 
-   2. 数据分块 -&gt; partitioningBy，它接受一个流，并将其分成两部分
+   3. 数据分块 -&gt; partitioningBy，它接受一个流，并将其分成两部分![](/assets/partitioningBy.png)example: 将艺术家组成的流分成乐队和独唱歌手两部分
 
-![](/assets/partitioningBy.png)
+      ```java
+      public Map<Boolean, List<Artist>> bandsAndSolo(Stream<Artist> artists) {
+          return artists.collect(partitioningBy(artist -> artist.isSolo()));
+      }
+      ```
 
-example:
+   4. 数据分组 -&gt; 一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。![](/assets/groupingBy.png)example:
 
-* 将艺术家组成的流分成乐队和独唱歌手两部分
+      ```java
+      public Map<Artist, List<Album>> albumsByArtist(Stream<Album> albums) {
+            return albums.collect(groupingBy(album -> album.getMainMusician()));
+          }
+      ```
 
-```java
-public Map<Boolean, List<Artist>> bandsAndSolo(Stream<Artist> artists) {
-    return artists.collect(partitioningBy(artist -> artist.isSolo()));
-}
-```
+   5. 字符串
 
-* 使用方法引用将艺术家组成的 Stream 分成乐队和独唱歌手两部分
+      example:
 
-```java
-public Map<Boolean, List<Artist>> bandsAndSoloRef(Stream<Artist> artists) {
-return artists.collect(partitioningBy(Artist::isSolo));
-```
+   6. 1. 使用方法引用将艺术家组成的 Stream 分成乐队和独唱歌手两部分
+      2. ```java
+         String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
+         ```
+   7. mapping 允许在收集器的容器上执行类似 map 的操作
 
-i. 数据分组 -&gt; 一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。
+   8. 并行化流操作
 
-![](/assets/groupingBy.png)
+      1. 并 行 化 操 作 流 只 需 改 变 一 个 方 法 调 用。 如 果 已 经 有 一 个 Stream 对 象， 调 用 它 的
 
-example:
+         parallel 方法就能让其拥有并行操作的能力。如果想从一个集合类创建一个流，调用
 
-* 使用主唱对专辑分组
+         parallelStream 就能立即获得一个拥有并行能力的流。
 
-```
-public Map<Artist, List<Album>> albumsByArtist(Stream<Album> albums) {
-return albums.collect(groupingBy(album -> album.getMainMusician()));
-}
-```
+         影响性能的五要素是：数据大小、源数据结构、值是否装箱、可用的 CPU 核数量，以
 
-1. 字符串
+         及处理每个元素所花的时间。
 
-example:
+   9. 方法引用:
 
-* 使用流和收集器格式化艺术家姓名
+      1. Classname::methodName
 
-```
-String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
-```
 
-1. mapping 允许在收集器的容器上执行类似 map 的操作
 
-2. 并行化流操作
 
-并 行 化 操 作 流 只 需 改 变 一 个 方 法 调 用。 如 果 已 经 有 一 个 Stream 对 象， 调 用 它 的
-
-parallel 方法就能让其拥有并行操作的能力。如果想从一个集合类创建一个流，调用
-
-parallelStream 就能立即获得一个拥有并行能力的流。
-
-影响性能的五要素是：数据大小、源数据结构、值是否装箱、可用的 CPU 核数量，以
-
-及处理每个元素所花的时间。
-
-1. CompletableFuture
-
-2. Classname::methodName
 
 
 
