@@ -1,9 +1,9 @@
-1. ---
+ 
 
-   函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型  
-   1. 函数式接口编写示例
+函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型  
+1. 函数式接口编写示例
 
-2. ```java
+1. ```java
    /** 函数式接口编写示例 添加 @FunctionalInterface 注解标明该接口为函数式接口 */
    @FunctionalInterface
    public interface GreetingService {
@@ -107,12 +107,6 @@
 ```
 
 ```
-
-
-
-
-
-
 
 1. 转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
 
