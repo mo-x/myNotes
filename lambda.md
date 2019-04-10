@@ -66,6 +66,29 @@
     * ```java
       List<Integer> together = Stream.of(Arrays.asList(1, 2), Arrays.asList(3, 4)).flatMap(Collection::stream).collect(Collectors.toList());
       ```
+
+  * filter 
+
+    * 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
+
+  * reduce 
+
+    * 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
+
+      法，因为常用而被纳入标准库中。事实上，这些方法都是 reduce 操作。
+
+  * forEach
+
+    * forEachOrdered-保证有序
+    * forEach 无序
+
+  * 转换成集合
+
+    * example:
+
+      ```java
+      stream.collect(toCollection(TreeSet::new));
+      ```
 * 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
@@ -78,35 +101,15 @@
 | Supplier&lt;T&gt; | None | T | 工厂方法 |
 |  |  |  |  |
 
-1. map
 
-如果有一个函数可以将一种类型的值转换成另外一种类型，map 操作就可以 使用该函数，将一个流中的值转换成一个新的流。
 
-List&lt;String&gt; collected = Stream.of\("a", "b", "hello"\).map\(string -&gt; string.toUpperCase\(\)\).collect\(toList\(\)\);
-
-1. flatMap
-
-> 方法可用 Stream 替换值，然后将多个 Stream 连接成一个 Stream
-
-* example:
-
-```java
-List<Integer> together = Stream.of(Arrays.asList(1, 2), Arrays.asList(3, 4)).flatMap(Collection::stream).collect(Collectors.toList());
-```
-
-1. filter 遍历数据并检查其中的元素时，可尝试使用 Stream 中提供的新方法 filter
-
-2. reduce 操作可以实现从一组值中生成一个值。在上述例子中用到的 count、min 和 max 方
-
-法，因为常用而被纳入标准库中。事实上，这些方法都是 reduce 操作。
-
-1. forEachOrdered-保证有序
-
-forEach-无序
+    1.收集器
 
 
 
-转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
+
+
+1. 转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
 
 1. 转换成值
 
@@ -185,7 +188,7 @@ parallelStream 就能立即获得一个拥有并行能力的流。
 
 1. CompletableFuture
 
-1. Classname::methodName
+2. Classname::methodName
 
 
 
