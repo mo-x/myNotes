@@ -46,10 +46,18 @@
 
 * 常用流的操作
 
-  * collect
-    * collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操
-    * collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作。
+  > 判断一个操作是惰性求值还是及早求值很简单:只需看它的返回值。如果返回值是Stream， 那么是惰性求值;如果返回值是另一个值或为空，那么就是及早求值
 
+* * collect
+  * * collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操
+    * collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作。
+  * map
+
+    * 如果有一个函数可以将一种类型的值转换成另外一种类型，map 操作就可以 使用该函数，将一个流中的值转换成一个新的流。
+
+    * ```java
+       List<String> list = Stream.of("a", "b", "hello").map(string -> string.toUpperCase()).collect(Collectors.toList());
+      ```
 * 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
