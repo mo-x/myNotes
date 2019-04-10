@@ -1,5 +1,3 @@
- 
-
 函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型  
 1. 函数式接口编写示例
 
@@ -101,29 +99,26 @@
 | Supplier&lt;T&gt; | None | T | 工厂方法 |
 |  |  |  |  |
 |  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
 
-```
 
-```
 
-1. 转换成集合 stream.collect\(toCollection\(TreeSet::new\)\);
+1. 收集器
+   1. 转换成集合 
 
-2. 转换成值
+   ```java
+   stream.collect(toCollection(TreeSet::new));
+   ```
 
-example:
+   1. 转换成值
 
-```
-public Optional<Artist> biggestGroup(Stream<Artist> artists) {
-    Function<Artist,Long> getCount = artist -> artist.getMembers().count();
-    return artists.collect(maxBy(comparing(getCount)));
-}
-```
+      ```java
+      public Optional<Artist> biggestGroup(Stream<Artist> artists) {
+          Function<Artist,Long> getCount = artist -> artist.getMembers().count();
+          return artists.collect(maxBy(comparing(getCount)));
+      }
+      ```
 
-1. 数据分块
-
-partitioningBy，它接受一个流，并将其分成两部分
+   2. 数据分块 -&gt; partitioningBy，它接受一个流，并将其分成两部分
 
 ![](/assets/partitioningBy.png)
 
@@ -145,7 +140,7 @@ return artists.collect(partitioningBy(Artist::isSolo));
 }
 ```
 
-1. 数据分组
+ii.数据分组
 
 数据分组是一种更自然的分割数据操作，与将数据分成 ture 和 false 两部分不同，可以使用任意值对数据分组。
 
