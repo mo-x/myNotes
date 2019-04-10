@@ -44,11 +44,11 @@
 
 * Lambda 表达式中引用的局部变量必须是 final 或既成事实上的 final 变量。\(引用值，而不是变量）
 * 常用流的操作
-* collect
-* collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操作。
-* collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作。
+  * collect
+    * collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操
+    * collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作。
 
-1. 函数式接口
+* 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
 | :--- | :--- | :--- | :--- |
