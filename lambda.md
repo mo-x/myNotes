@@ -1,4 +1,6 @@
-1. 函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型
+1. ---
+
+   函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型
    1. 函数式接口编写示例
 2. ```java
    /** 函数式接口编写示例 添加 @FunctionalInterface 注解标明该接口为函数式接口 */
@@ -41,15 +43,23 @@
 
 1. Lambda 表达式中引用的局部变量必须是 final 或既成事实上的 final 变量。\(引用值，而不是变量）
 
-2. 函数式接口
+2. 常用流的操作
+
+   1. collect 
+
+      1. collect\(toList\(\)\)方法由Stream里的值生成一个列表，是一个及早求值操作。
+
+      2. collect\(toSet\(\)\)方法由Stream里的值生成一个set列表，是一个及早求值操作
+
+3. 函数式接口
 
 | 接口 | 参数 | 返回类型 | 示例 |
 | :--- | :--- | :--- | :--- |
-| Predicate&lt;T&gt; | T | boolean |  |
+| Predicate&lt;T&gt; | T | boolean | 这张唱片发行了吗 |
 | UnaryOperator&lt;T&gt; | T | T | 逻辑非\(!\) |
 | BinaryOperator&lt;T&gt; | \(T,T\) | T | 求两个数的乘积 |
-| Consumer&lt;T&gt; | T | void |  |
-| Function&lt;T,R&gt; | T | R |  |
+| Consumer&lt;T&gt; | T | void | 输出一个值 |
+| Function&lt;T,R&gt; | T | R | 获得Artist对象的名字 |
 | Supplier&lt;T&gt; | None | T | 工厂方法 |
 |  |  |  |  |
 
