@@ -137,8 +137,9 @@
 
       example:
 
-   6. 1. 使用方法引用将艺术家组成的 Stream 分成乐队和独唱歌手两部分
-      2. ```java
+   6. 使用方法引用将艺术家组成的 Stream 分成乐队和独唱歌手两部分
+
+      1. ```java
          String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
          ```
    7. mapping 允许在收集器的容器上执行类似 map 的操作
