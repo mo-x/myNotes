@@ -141,11 +141,9 @@
       2. ```java
          String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
          ```
-   7. 查找与匹配
+   7. mapping 允许在收集器的容器上执行类似 map 的操作
 
-   8. mapping 允许在收集器的容器上执行类似 map 的操作
-
-   9. 并行化流操作
+   8. 并行化流操作
 
       1. 并 行 化 操 作 流 只 需 改 变 一 个 方 法 调 用。 如 果 已 经 有 一 个 Stream 对 象， 调 用 它 的
 
@@ -157,9 +155,9 @@
 
          及处理每个元素所花的时间。
 
-   10. 方法引用:
+   9. 方法引用:
 
-       1. Classname::methodName
+      1. Classname::methodName
 
 
 
