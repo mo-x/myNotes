@@ -46,7 +46,7 @@
 
   * Why?
 
-    * > 1. 这是由Java对lambda表达式的实现决定的，在Java中lambda表达式是匿名类语法上的进一步简化，其本质还是调用对象的方法。   
+    * > 1. 这是由Java对lambda表达式的实现决定的，在Java中lambda表达式是匿名类语法上的进一步简化，其本质还是调用对象的方法。  
       >    在Java中方法调用是值传递的，所以在lambda表达式中对变量的操作都是基于原变量的副本，不会影响到原变量的值。  
       >    综上，假定没有要求lambda表达式外部变量为final修饰，那么开发者会误以为外部变量的值能够在lambda表达式中被改变，而这实际是不可能的，所以要求外部变量为final是在编译期以强制手段确保用户不会在lambda表达式中做修改原变量值的操作。
       >
@@ -141,9 +141,11 @@
       2. ```java
          String result =artists.stream().map(Artist::getName).collect(Collectors.joining(", ", "[", "]"));
          ```
-   7. mapping 允许在收集器的容器上执行类似 map 的操作
+   7. 查找与匹配
 
-   8. 并行化流操作
+   8. mapping 允许在收集器的容器上执行类似 map 的操作
+
+   9. 并行化流操作
 
       1. 并 行 化 操 作 流 只 需 改 变 一 个 方 法 调 用。 如 果 已 经 有 一 个 Stream 对 象， 调 用 它 的
 
@@ -155,9 +157,9 @@
 
          及处理每个元素所花的时间。
 
-   9. 方法引用:
+   10. 方法引用:
 
-      1. Classname::methodName
+       1. Classname::methodName
 
 
 
