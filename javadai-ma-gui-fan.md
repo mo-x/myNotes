@@ -28,14 +28,15 @@
 * 接口类中的方法和属性不要加任何修饰符号\(public也不要加\)，保持代码的简洁 性，并加上有效的Javadoc注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。  
   正例:接口方法签名:void f\(\);
 
-  `接口基础常量表示:String COMPANY= "alibaba";          
+  `接口基础常量表示:String COMPANY= "alibaba";            
   反例:接口方法定义:public abstractvoid f();`  
   说明:JDK8中接口允许有默认实现，那么这个default方法，是对所有实现类都有价值的默 认实现。
 
 #### OOP规约
 
-* **避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成 本，直接用类名来访问即可。**
-
+* ```
+  避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成 本，直接用类名来访问即可。
+  ```
 * 所有的覆写方法，必须加@Override注解。  
   说明:getObject\(\)与get0bject\(\)的问题。一个是字母的O，一个是数字的0，加@Override可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编 译报错。
 
@@ -49,7 +50,7 @@
 
 * Object的equals方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals。
 
-  `正例:"test".equals(object);        
+  `正例:"test".equals(object);          
    反例:object.equals("test");`
 
 * **所有的相同类型的包装类对象之间值的比较，全部使用equals方法比较**。说明:对于Integer var= ?在-128至127范围内的赋值，Integer对象是在IntegerCache.cache产生，会复用已有对象，这个区间内的Integer值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用equals方法进行判断
@@ -61,6 +62,38 @@
 * 构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在init方法中。
 
 * 实体类写toString方法。可以使用IDE的中工具:source&gt;generate toString时或者使用lombok @ToString注解，如果继承了另一个实体类，注意在前面加一下super.toString。说明:在方法执行抛出异常时，可以直接调用POJO的toString\(\)方法打印其属性值，便于排查问题。
+
+* 使用索引访问用String的split方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛IndexOutOfBoundsException的风险。
+
+```
+   String str = "a,b,c,,";
+   String[] ary = str.split(","); // 预期大于 3，结果是 3 
+   System.out.println(ary.length);
+```
+
+* setter方法中，参数名称与类成员变量名称一致，this.成员名=参数名。在
+
+  getter/setter方法中，不要增加业务逻辑，增加排查问题的难度。
+
+  反例:
+
+  ```java
+  public Integer getData() { if (true) {
+  return this.data + 100; } else {
+  return this.data - 100; }
+  }
+
+  ```
+
+* 循环体内，字符串的连接方式，使用StringBuilder的append方法进行扩展。说明:反编译出的字节码文件显示每次循环都会new出一个StringBuilder对象，然后进行append操作，最后通过toString方法返回String对象，造成内存资源浪费。  
+  反例:
+
+  ```java
+  String str = "start";
+  for (int i = 0; i < 100; i++) {
+      str = str + "hello"; 
+  }
+  ```
 
 
 
