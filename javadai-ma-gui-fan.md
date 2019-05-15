@@ -28,7 +28,7 @@
 * 接口类中的方法和属性不要加任何修饰符号\(public也不要加\)，保持代码的简洁 性，并加上有效的Javadoc注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。  
   正例:接口方法签名:void f\(\);
 
-  `接口基础常量表示:String COMPANY= "alibaba";            
+  `接口基础常量表示:String COMPANY= "alibaba";              
   反例:接口方法定义:public abstractvoid f();`  
   说明:JDK8中接口允许有默认实现，那么这个default方法，是对所有实现类都有价值的默 认实现。
 
@@ -42,6 +42,8 @@
 
 * 不能使用过时的类或方法。
 
+* 定义DO/DTO/VO等实体类时，不要设定任何属性默认值。
+
 * 相同参数类型，相同业务含义，才可以使用Java的可变参数，避免使用Object。说明:可变参数必须放置在参数列表的最后。\(提倡同学们尽量不用可变参数编程\)正例:public User getUsers\(String type, Integer... ids\) {...}
 
 * 方法的参数建议不超过5个
@@ -50,7 +52,7 @@
 
 * Object的equals方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals。
 
-  `正例:"test".equals(object);          
+  `正例:"test".equals(object);            
    反例:object.equals("test");`
 
 * **所有的相同类型的包装类对象之间值的比较，全部使用equals方法比较**。说明:对于Integer var= ?在-128至127范围内的赋值，Integer对象是在IntegerCache.cache产生，会复用已有对象，这个区间内的Integer值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用equals方法进行判断
@@ -82,7 +84,6 @@
   return this.data + 100; } else {
   return this.data - 100; }
   }
-
   ```
 
 * 循环体内，字符串的连接方式，使用StringBuilder的append方法进行扩展。说明:反编译出的字节码文件显示每次循环都会new出一个StringBuilder对象，然后进行append操作，最后通过toString方法返回String对象，造成内存资源浪费。  
@@ -94,6 +95,14 @@
       str = str + "hello"; 
   }
   ```
+
+* 【推荐】类成员与方法访问控制从严:  
+  1\)如果许外部直接通过new来创建对象，那么构造方法必须是private。2\)工具类不允许有public或default构造方法。  
+  3\)类非static成员变量并且与子类共享，必须是protected。  
+  4\)类非static成员变量并且仅在本类使用，必须是private。  
+  5\)类static成员变量如果仅在本类使用，必须是private。
+
+  6\)若是static成员变量，必须考虑是否为final
 
 
 
