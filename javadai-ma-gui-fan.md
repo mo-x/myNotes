@@ -28,7 +28,7 @@
 * 接口类中的方法和属性不要加任何修饰符号\(public也不要加\)，保持代码的简洁 性，并加上有效的Javadoc注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。  
   正例:接口方法签名:void f\(\);
 
-  `接口基础常量表示:String COMPANY= "alibaba";    
+  `接口基础常量表示:String COMPANY= "alibaba";      
   反例:接口方法定义:public abstractvoid f();`  
   说明:JDK8中接口允许有默认实现，那么这个default方法，是对所有实现类都有价值的默 认实现。
 
@@ -49,15 +49,18 @@
 
 * Object的equals方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals。
 
-  `正例:"test".equals(object);  
+  `正例:"test".equals(object);    
    反例:object.equals("test");`
 
 * **所有的相同类型的包装类对象之间值的比较，全部使用equals方法比较**。说明:对于Integer var= ?在-128至127范围内的赋值，Integer对象是在IntegerCache.cache产生，会复用已有对象，这个区间内的Integer值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用equals方法进行判断
 
 * 关于基本数据类型与包装数据类型的使用标准如下:  
   1\)【强制】所有的POJO类属性必须使用包装数据类型。  
-  2\)【推荐】所有的局部变量使用基本数据类型。  
-  
+  2\)【推荐】所有的局部变量使用基本数据类型。
+
+* 构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在init方法中。
+
+* 实体类必须写toString方法。使用IDE的中工具:source&gt;generate toString时或者使用lombok @ToString注解，如果继承了另一个实体类，注意在前面加一下super.toString。说明:在方法执行抛出异常时，可以直接调用POJO的toString\(\)方法打印其属性值，便于排查问题。
 
 
 
